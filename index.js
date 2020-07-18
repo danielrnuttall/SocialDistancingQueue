@@ -19,13 +19,23 @@ for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
-    decreaseCapacity()
   }
 }
 
+
+function saveMaxCapacity() {
+    var maxCap = document.getElementById("maxCapacityInput").value;
+    document.getElementById("chosenMaxCapacity").innerHTML = maxCap;
+    max_capacity = maxCap;
+  
+}
 function increaseCapacity()
    {
         current_capacity++;
+        if (current_capacity > max_capacity)
+        {
+          current_capacity = max_capacity;
+        }
         document.getElementById("customerCountTracker").innerHTML = current_capacity;
         if (current_capacity >= max_capacity){
             toggleOutsideQueue()
@@ -35,6 +45,10 @@ function increaseCapacity()
 function decreaseCapacity()
     {
         current_capacity--;
+        if (current_capacity < 0)
+        {
+          current_capacity = 0;
+        }
         document.getElementById("customerCountTracker").innerHTML = current_capacity;
         if (current_capacity < max_capacity){
             toggleOutsideQueue()
@@ -49,19 +63,19 @@ function toggleOutsideQueue() {
     x.style.display = "none";
   }
 }
-const saveCustomerName = (ev)=>{
+const saveCustomerNumber = (ev)=>{
     ev.preventDefault();
     var li = document.createElement("li");
-    var custName = document.getElementById("customerNameInput").value;
-    var t = document.createTextNode(custName);
+    var custNum = document.getElementById("customerNumInput").value;
+    var t = document.createTextNode(custNum);
     li.appendChild(t);
     document.getElementById("custUL").appendChild(li);
-    document.getElementById("customerNameInput").value = "";
+    document.getElementById("customerNumInput").value = "";
 
     customer_id = Date.now();
     let customer = {
         id: customer_id,
-        name: custName
+        number: custNum
     }
     listOfCustomers.push(customer);
     document.forms[0].reset(); //clear form for next entry
@@ -84,9 +98,12 @@ const saveCustomerName = (ev)=>{
 
     localStorage.setItem('CustomerList', JSON.stringify(listOfCustomers));
 
-    increaseCapacity();
 }
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    document.getElementById('submitBtn').addEventListener('click', saveCustomerName);
+    document.getElementById('submitBtn').addEventListener('click', saveCustomerNumber);
+});
+
+document.addEventListener('DOMContentLoaded', ()=> {
+  document.getElementById('saveMaxCapacityBtn').addEventListener('click', saveMaxCapacity);
 });

@@ -11,36 +11,90 @@
 
   </head>
   <body>
-      <div class = "container">
-          <div class = "jumbotron">
+      <!-- Modal -->
+      <div class="modal fade" id="capacityModal" tabindex="-1" role="dialog" aria-labelledby="capacityModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="capacityModalLabel">Enter maximum store capacity</h5>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <input type="number"class="form-control" id="maxCapacityInput"placeholder="e.g. 20"/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id = "saveMaxCapacityBtn" onclick="saveMaxCapacity();">Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "container ">
+          <div class = "jumbotron" style = "text-align: center">
+            <div class = "container">
+              <div class = "row justify-content-center">
+                <h2>Social Distancing Queue App</h2>
+              </div>
+
+              <div class="container" style = "padding-top: 5%">
+                  <div class="row justify-content-center">
+                    <div class="col-auto">
+                      <h4>Customers in-store:</h4>
+                      </div>
+                    <div class = "col-auto">
+                      <p id = "customerCountTracker" class = "">0</p>
+                    </div> 
+                    <div class = "col-auto">
+                        <p class = "">/</p>
+                    </div>
+                    <div class = "col-auto">
+                        <p id = "chosenMaxCapacity" class = "">-</p>
+                    </div>
+                    <div class = "col-auto">
+                        <button type="button" class="btn btn-primary" onclick="decreaseCapacity()">-</button>
+                    </div>
+                    <div class = "col-auto">
+                        <button type="button" class="btn btn-primary" onclick="increaseCapacity()">+</button>
+                    </div>
+
+                </div>
+
+            <div class = "row justify-content-center" style = "padding-top: 5%">
+                <h4>Enter customer phone number:</h4>
+            </div>
             <div class = "row top-buffer">
-                <form>
+                <form class = "col-8 mx-auto">
                     <div class="formBox">
-                      <label for="customerNameInput">Enter customer name:</label>
-                      <input type="text" class="form-control" id="customerNameInput" aria-describedby="nameHelp" placeholder="Name"/>
-                      <small id="nameHelp" class="form-text text-muted">Keep track of who's instore</small>
-                      <button type="submit" class="btn btn-primary" id = "submitBtn">Submit</button>
+                      <input name = "customer" type="number" class="form-control" id="customerNumInput" aria-describedby="numHelp" placeholder="Phone number"/>
+                      <small id="numHelp" class="form-text text-muted" style = "padding:10px">Keep track of who's in-store</small>
+                      <button type="submit" class="btn btn-primary" id = "submitBtn">Add customer</button>
                     </div>
               </div>
-              <div class = "row top-buffer">
-                <div class = "col-auto">
-                <h4>Customers in-store</h4>
+            </div>
+
+            
+            <div class="container" style = "padding-top: 5%">
+                <div class="row justify-content-center">
+                  <div class="col-auto">
+                    <h4>Customers in queue:</h4>
+                  </div>
                 </div>
-                <div class = "col-auto">
-                  <h4 id = "customerCountTracker">0</h4>
+            </div>
+     
+                <div class="container" style = "padding-top: 5%">
+                   <div class = "row justify-content-center" style = "width: 20%">
+                        <ul id = "custUL" class="list-group">
+                        </ul>
+                  </div>
+                  </div>
                 </div>
-              
-              </div>
-              <div class = "row top-buffer">
-                <div id="insideQueueDiv">
-                <ul id = "custUL" class="list-group">
-                </ul>
                 </div>
-                <div id="outsideQueueDiv">
-                  <ul id = "outsideCustUL" class="list-group">
-                  </ul>
                   </div>
               </div>
+            </div>
             </div>
             
           </div>
@@ -52,5 +106,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#capacityModal').modal('show');
+      })</script>
+    <script>
+      $('#saveMaxCapacityBtn').click(function() {
+    $('#capacityModal').modal('hide');
+    });</script>
+
     </body>
 </html>
