@@ -1,0 +1,23 @@
+{
+  "name": "socialdistancingqueuewebapp",
+  "version": "1.0.0",
+  "description": "Project for the UCT DevSoc Vac SOLIDitech challenge (Week 1)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielrnuttall/SocialDistancingQueueWebApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielrnuttall/SocialDistancingQueueWebApp/issues"
+  },
+  "homepage": "https://github.com/danielrnuttall/SocialDistancingQueueWebApp#readme",
+  "dependencies": {
+    "firebase": "^7.16.1",
+    "moment": "^2.27.0"
+  }
+}
