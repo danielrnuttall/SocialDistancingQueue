@@ -2,6 +2,11 @@ var db = firebase.firestore();
 
 function writeUserData() {
     var custNum = document.getElementById("customerNumInput").value; //Get phone number
+    if (custNum == "")
+    {
+
+    }
+    else{
     var today = new Date();
     var day = today.getDate() + "";
     var month = (today.getMonth() + 1) + "";
@@ -43,5 +48,5 @@ db.collection('requests').doc("testDoc").set(custData)
           });
       }*/
   
-    
+    }
   }

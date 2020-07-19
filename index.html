@@ -45,13 +45,13 @@
                       <h4>Customers in-store:</h4>
                       </div>
                     <div class = "col-auto">
-                      <p id = "customerCountTracker" class = "">0</p>
+                      <h5 id = "customerCountTracker" class = "">0</h5>
                     </div> 
                     <div class = "col-auto">
-                        <p class = "">/</p>
+                        <h5 class = "">/</h5>
                     </div>
                     <div class = "col-auto">
-                        <p id = "chosenMaxCapacity" class = "">-</p>
+                        <h5 id = "chosenMaxCapacity" class = "">-</h5>
                     </div>
                     <div class = "col-auto">
                         <button type="button" class="btn btn-primary" onclick="decreaseCapacity()">-</button>
@@ -76,18 +76,22 @@
               </div>
             </div>
 
+            <div class = "row top-buffer" style = "border-bottom: 0.5px solid darkgrey; padding-top: 5%"></div>
             
             <div class="container" style = "padding-top: 5%">
                 <div class="row justify-content-center">
                   <div class="col-auto">
                     <h4>Customers in queue:</h4>
                   </div>
+                  <div class="col-auto">
+                    <p>
+                  </div>
                 </div>
             </div>
      
                 <div class="container" style = "padding-top: 5%">
-                   <div class = "row justify-content-center" style = "width: 20%">
-                        <ul id = "custUL" class="list-group">
+                   <div>
+                        <ul id = "custUL">
                         </ul>
                   </div>
                   </div>

@@ -67,7 +67,6 @@ for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
-    console.log("Closed this bitch");
   }
 }
 
@@ -104,6 +103,10 @@ const saveCustomerNumber = (ev)=>{
     ev.preventDefault();
     var li = document.createElement("li");
     var custNum = document.getElementById("customerNumInput").value;
+    if (custNum == ""){
+
+    }
+    else{
     var t = document.createTextNode(custNum);
     li.appendChild(t);
     document.getElementById("custUL").appendChild(li);
@@ -134,7 +137,7 @@ const saveCustomerNumber = (ev)=>{
     pre.textContent = '\n' + JSON.stringify(listOfCustomers, '\t', 2);
 
     localStorage.setItem('CustomerList', JSON.stringify(listOfCustomers));
-
+    }
 }
 
 document.addEventListener('DOMContentLoaded', ()=> {
