@@ -5,7 +5,7 @@ var current_capacity = 0;
 var max_capacity = 0;
 var numCustInQueueVar = 0;
 
-var myNodelist = document.getElementsByTagName("LI");
+var myNodelist = document.getElementsByTagName("li");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
