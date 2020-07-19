@@ -1,4 +1,4 @@
-ul li {
+ol li {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -14,10 +14,10 @@ ul li {
     user-select: none;
   }
 
-  ul li:hover {
+  ol li:hover {
     background: #ddd;
   }
-  ul li:nth-child(odd) {
+  ol li:nth-child(odd) {
     background: #f9f9f9;
   }
 
