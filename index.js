@@ -1,7 +1,7 @@
 var db = firebase.firestore();
 
-function writeUserData() {
-    var custNum = document.getElementById("customerNumInput").value; //Get phone number
+function writeUserData(custNum) {
+    //var custNum = document.getElementById("customerNumInput").value; //Get phone number
     if (custNum == "")
     {
 
@@ -24,8 +24,8 @@ function writeUserData() {
   
     var dateTime = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds
    
-    console.log(custNum)
-    console.log(dateTime)
+    console.log("Sent text message to number: " + custNum)
+    console.log("At " + dateTime)
   
   const custData = {
     phoneNo: custNum,
@@ -34,7 +34,7 @@ function writeUserData() {
   cust_id = Date.now();
   
 
-db.collection('requests').doc("testDoc").set(custData)
+db.collection('requests').add(custData)
     .then(function() {
         console.log("Document successfully written!");
     })

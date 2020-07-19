@@ -69,8 +69,8 @@
                 <form class = "col-8 mx-auto">
                     <div class="formBox">
                       <input name = "customer" type="number" class="form-control" id="customerNumInput" aria-describedby="numHelp" placeholder="Phone number"/>
-                      <small id="numHelp" class="form-text text-muted" style = "padding:10px">Keep track of who's in-store</small>
-                      <button type="submit" class="btn btn-primary" id = "submitBtn" onclick = "writeUserData()">Add customer</button>
+                      <small id="numHelp" class="form-text text-muted" style = "padding:10px">e.g. 082 xxx xxxx</small>
+                      <button type="submit" class="btn btn-primary" id = "submitBtn">Add customer</button>
                     </div>
                     </form>
               </div>
@@ -84,7 +84,7 @@
                     <h4>Customers in queue:</h4>
                   </div>
                   <div class="col-auto">
-                    <p>
+                    <h5 id = "numCustInQ">0</h5>
                   </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  console.log("initialised shit")
+  console.log("Initialised Firebase")
 </script>
     <script src = "index.js"></script>
     <script src="functions.js"></script>
